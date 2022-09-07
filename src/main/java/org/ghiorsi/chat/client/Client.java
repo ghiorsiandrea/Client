@@ -1,4 +1,4 @@
-package Client;
+package org.ghiorsi.chat.client;
 
 import PaqueteEnvio.PaqueteEnvio;
 
