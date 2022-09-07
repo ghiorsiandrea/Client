@@ -1,0 +1,11 @@
+--2022-09-06 15:44:47--  https://www.virtualbox.org/download/oracle_vbox_2016.asc
+Resolving www.virtualbox.org (www.virtualbox.org)... 137.254.60.32
+Connecting to www.virtualbox.org (www.virtualbox.org)|137.254.60.32|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3157 (3,1K) [text/plain]
+Saving to: ‘STDOUT’
+
+-                                       0%[                                                                        ]       0  --.-KB/s               -                                     100%[=======================================================================>]   3,08K  --.-KB/s    in 0s      
+
+2022-09-06 15:44:48 (594 MB/s) - written to stdout [3157/3157]
+

@@ -1,6 +1,6 @@
 package org.ghiorsi.chat.client;
 
-import PaqueteEnvio.PaqueteEnvio;
+import org.ghiorsi.chat.protocol.PaqueteEnvio;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Client {
-    public static final int PORT = 9999;
+    public static final int PORT = Integer.parseInt(System.getenv("PORT"));
 
     public static void main(String[] args) {
         MarcoCliente miMarco = new MarcoCliente();
