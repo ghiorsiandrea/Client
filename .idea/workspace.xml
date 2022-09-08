@@ -9,10 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20d213fe-7565-45bd-82a2-6f0369c2be7a" name="Changes" comment="Exercise Two -&#10;&#10;Curso Java. - Pildoras Informaticas Sockets VI Creación de chat IV. Vídeo 195">
+    <list default="true" id="20d213fe-7565-45bd-82a2-6f0369c2be7a" name="Changes" comment="We will use an own library named Paquete Envio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ghiorsi/chat/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ghiorsi/chat/client/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662569591455</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="We will use an own library named Paquete Envio">
+      <created>1662576261770</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1662576261770</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +209,8 @@
     <MESSAGE value="Exercise Two -&#10;&#10;Curso Java. - Pildoras Informaticas Sockets IV Creación de chat II. Vídeo 193" />
     <MESSAGE value="Exercise Two -&#10;&#10;Curso Java. - Pildoras Informaticas V Creación de chat III. Vídeo 194" />
     <MESSAGE value="Exercise Two -&#10;&#10;Curso Java. - Pildoras Informaticas Sockets VI Creación de chat IV. Vídeo 195" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exercise Two -&#10;&#10;Curso Java. - Pildoras Informaticas Sockets VI Creación de chat IV. Vídeo 195" />
+    <MESSAGE value="We will use an own library named Paquete Envio" />
+    <option name="LAST_COMMIT_MESSAGE" value="We will use an own library named Paquete Envio" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Sockets$Server.ic" NAME="Server Coverage Results" MODIFIED="1662056401693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
