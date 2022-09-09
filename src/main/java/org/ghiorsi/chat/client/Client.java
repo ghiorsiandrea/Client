@@ -80,7 +80,7 @@ public class Client {
 
                 System.out.println(campo1.getText());
                 try {
-                    Socket misocket = new Socket("127.0.0.1", Client.PORT);
+                    Socket misocket = new Socket(ip.getText(), Client.PORT);
                     PaqueteEnvio datos = new PaqueteEnvio();
                     datos.setNick(nick.getText());
                     datos.setIp(ip.getText());
