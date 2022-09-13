@@ -5,6 +5,8 @@ import org.ghiorsi.chat.protocol.PaqueteEnvio;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -25,22 +27,49 @@ public class Client {
             LaminaMarcoCliente milamina = new LaminaMarcoCliente();
             add(milamina);
             setVisible(true);
+            addWindowListener(new EnvioOnline());
         }
     }
 
-    static class LaminaMarcoCliente extends JPanel  implements Runnable{
-        private JTextField campo1, nick, ip;
+    /**
+     * Sending online signal
+     */
+    static class EnvioOnline extends WindowAdapter {
 
+        public void windowOpened(WindowEvent e) {
+
+            try {
+                Socket misocket = new Socket("127.0.0.1", PORT);
+                PaqueteEnvio datos = new PaqueteEnvio();
+                datos.setMensaje(" online");
+                ObjectOutputStream paquete_datos = new ObjectOutputStream(misocket.getOutputStream());
+                paquete_datos.writeObject(datos);
+                misocket.close();
+            } catch (Exception ex) {
+
+            }
+        }
+    }
+
+    static class LaminaMarcoCliente extends JPanel implements Runnable {
+        private JTextField campo1;
+        private JComboBox ip;
+        private JLabel nick;
         private JTextArea campochat;
         private JButton miboton;
 
         public LaminaMarcoCliente() {
-
-            nick = new JTextField(5);
+            String nick_usuario = JOptionPane.showInputDialog("Nick: ");
+            JLabel n_nick = new JLabel("Nick: ");
+            nick = new JLabel();
+            nick.setText(nick_usuario);
             add(nick);
-            JLabel texto = new JLabel(" - CHAT - ");
+            JLabel texto = new JLabel(" - Online - ");
             add(texto);
-            ip = new JTextField(8);
+            ip = new JComboBox();
+            ip.addItem("Usuario 1");
+            ip.addItem("Usuario 2");
+            ip.addItem("Usuario 3");
             add(ip);
             campochat = new JTextArea(12, 20);
             add(campochat);
@@ -77,16 +106,16 @@ public class Client {
         private class EnviaTexto implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 System.out.println(campo1.getText());
+                campochat.append("\n" + campo1.getText());
                 try {
-                    Socket misocket = new Socket(ip.getText(), Client.PORT);
+                    Socket misocket = new Socket(ip.getSelectedItem().toString(), Client.PORT);
                     PaqueteEnvio datos = new PaqueteEnvio();
                     datos.setNick(nick.getText());
-                    datos.setIp(ip.getText());
+                    datos.setIp(ip.getSelectedItem().toString());
                     datos.setMensaje(campo1.getText());
 
-//                  Ex. Two
+//                  Ex. Tree
                     ObjectOutputStream paquete_datos = new ObjectOutputStream(misocket.getOutputStream());
                     paquete_datos.writeObject(datos);
                     paquete_datos.close();
