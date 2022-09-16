@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="20d213fe-7565-45bd-82a2-6f0369c2be7a" name="Changes" comment="We will use an own library named Paquete Envio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ghiorsi/chat/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ghiorsi/chat/client/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
