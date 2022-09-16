@@ -31,7 +31,7 @@ service, and returns the results in the form of a response.
 
 <br>
 
-###                   SERVER IS   THIS IS THE CLIENT'S APP
+###                   MYCHAT-CLIENT IS   THIS IS THE CLIENT'S APP
 
 <br>
 
