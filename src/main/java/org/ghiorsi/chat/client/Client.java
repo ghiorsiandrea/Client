@@ -67,9 +67,12 @@ public class Client {
             JLabel texto = new JLabel(" - Online - ");
             add(texto);
             ip = new JComboBox();
-            ip.addItem("Usuario 1");
-            ip.addItem("Usuario 2");
-            ip.addItem("Usuario 3");
+//            ip.addItem("Usuario 1");
+//            ip.addItem("Usuario 2");
+//            ip.addItem("Usuario 3");
+            ip.addItem("127.0.0.1");
+            ip.addItem("127.0.0.1");
+            ip.addItem("127.0.0.1");
             add(ip);
             campochat = new JTextArea(12, 20);
             add(campochat);
