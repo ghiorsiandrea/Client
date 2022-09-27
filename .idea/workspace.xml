@@ -217,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663355858397</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Exercise Tree -&#10;    Curso Java. - Pildoras Informaticas Sockets V-VI Creación de chat V-VI. Vídeos 196-197">
+      <created>1664215848126</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1664215848126</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,7 +250,8 @@
     <MESSAGE value="Exercise Two -&#10;&#10;Curso Java. - Pildoras Informaticas Sockets VI Creación de chat IV. Vídeo 195" />
     <MESSAGE value="We will use an own library named Paquete Envio" />
     <MESSAGE value="We actualised the READ ME" />
-    <option name="LAST_COMMIT_MESSAGE" value="We actualised the READ ME" />
+    <MESSAGE value="Exercise Tree -&#10;    Curso Java. - Pildoras Informaticas Sockets V-VI Creación de chat V-VI. Vídeos 196-197" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exercise Tree -&#10;    Curso Java. - Pildoras Informaticas Sockets V-VI Creación de chat V-VI. Vídeos 196-197" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Sockets$Server.ic" NAME="Server Coverage Results" MODIFIED="1662056401693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

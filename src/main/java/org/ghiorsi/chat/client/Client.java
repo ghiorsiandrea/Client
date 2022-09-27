@@ -71,8 +71,8 @@ public class Client {
 //            ip.addItem("Usuario 2");
 //            ip.addItem("Usuario 3");
             ip.addItem("127.0.0.1");
-            ip.addItem("127.0.0.1");
-            ip.addItem("127.0.0.1");
+            ip.addItem("192.168.1.14");
+            ip.addItem("192.168.1.10");
             add(ip);
             campochat = new JTextArea(12, 20);
             add(campochat);
