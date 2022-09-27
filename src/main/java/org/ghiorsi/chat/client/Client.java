@@ -112,7 +112,7 @@ public class Client {
                 System.out.println(campo1.getText());
                 campochat.append("\n" + campo1.getText());
                 try {
-                    Socket misocket = new Socket(ip.getSelectedItem().toString(), Client.PORT);
+                    Socket misocket = new Socket("192.168.1.14", Client.PORT);
                     PaqueteEnvio datos = new PaqueteEnvio();
                     datos.setNick(nick.getText());
                     datos.setIp(ip.getSelectedItem().toString());
