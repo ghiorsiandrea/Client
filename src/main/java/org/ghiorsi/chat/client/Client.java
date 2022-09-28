@@ -25,10 +25,10 @@ public class Client {
     public static class MarcoCliente extends JFrame {
         public MarcoCliente() {
             setBounds(600, 300, 280, 350);
+            addWindowListener(new EnvioOnline());
             LaminaMarcoCliente milamina = new LaminaMarcoCliente();
             add(milamina);
             setVisible(true);
-            addWindowListener(new EnvioOnline());
         }
     }
 
@@ -37,6 +37,7 @@ public class Client {
      */
     static class EnvioOnline extends WindowAdapter {
 
+        @Override
         public void windowOpened(WindowEvent e) {
 
             try {
@@ -45,7 +46,7 @@ public class Client {
                 datos.setMensaje(ONLINE);
                 ObjectOutputStream paquete_datos = new ObjectOutputStream(misocket.getOutputStream());
                 paquete_datos.writeObject(datos);
-                misocket.close();
+                paquete_datos.close();
             } catch (Exception ex) {
 
             }
