@@ -44,7 +44,7 @@ service, and returns the results in the form of a response.
 
 <br>
 <div align="middle">
-<img src="src/main/resources/IPS.png" height="300" width="620"/>
+<img src="src/main/resources/IPS.png" height="330" width="650"/>
 </div>
 <br>
 
