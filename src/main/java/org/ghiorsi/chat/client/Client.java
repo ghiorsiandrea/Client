@@ -69,9 +69,7 @@ public class Client {
             JLabel texto = new JLabel(" - Online - ");
             add(texto);
             ip = new JComboBox();
-//            ip.addItem("Usuario 1");
-//            ip.addItem("Usuario 2");
-//            ip.addItem("Usuario 3");
+
             ip.addItem("127.0.0.1");
             ip.addItem("192.168.1.14");
             ip.addItem("192.168.1.10");
@@ -100,7 +98,12 @@ public class Client {
                     cliente = servidor_cliente.accept();
                     ObjectInputStream flujoentrada = new ObjectInputStream(cliente.getInputStream());
                     paqueteRecibido = (PaqueteEnvio) flujoentrada.readObject();
-                    campochat.append("\n" + paqueteRecibido.getNick() + ": " + paqueteRecibido.getMensaje());
+
+                    if (!paqueteRecibido.getMensaje().equals(ONLINE)) {
+                        campochat.append("\n" + paqueteRecibido.getNick() + ": " + paqueteRecibido.getMensaje());
+                    } else {
+                        campochat.append("\n" + paqueteRecibido.getIps());
+                    }
                 }
 
             } catch (Exception e) {
