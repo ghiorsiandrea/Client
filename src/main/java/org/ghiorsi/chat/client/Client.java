@@ -15,6 +15,7 @@ import java.net.Socket;
 
 public class Client {
     public static final int PORT = Integer.parseInt(System.getenv("PORT"));
+    public static final String  ONLINE= " Online";
 
     public static void main(String[] args) {
         MarcoCliente miMarco = new MarcoCliente();
@@ -41,7 +42,7 @@ public class Client {
             try {
                 Socket misocket = new Socket("127.0.0.1", PORT);
                 PaqueteEnvio datos = new PaqueteEnvio();
-                datos.setMensaje(" online");
+                datos.setMensaje(ONLINE);
                 ObjectOutputStream paquete_datos = new ObjectOutputStream(misocket.getOutputStream());
                 paquete_datos.writeObject(datos);
                 misocket.close();
