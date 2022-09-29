@@ -12,10 +12,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class Client {
     public static final int PORT = Integer.parseInt(System.getenv("PORT"));
-    public static final String  ONLINE= " Online";
+    public static final String ONLINE = " Online";
 
     public static void main(String[] args) {
         MarcoCliente miMarco = new MarcoCliente();
@@ -70,9 +71,9 @@ public class Client {
             add(texto);
             ip = new JComboBox();
 
-            ip.addItem("127.0.0.1");
-            ip.addItem("192.168.1.14");
-            ip.addItem("192.168.1.10");
+//            ip.addItem("127.0.0.1");
+//            ip.addItem("192.168.1.14");
+//            ip.addItem("192.168.1.10");
             add(ip);
             campochat = new JTextArea(12, 20);
             add(campochat);
@@ -102,7 +103,13 @@ public class Client {
                     if (!paqueteRecibido.getMensaje().equals(ONLINE)) {
                         campochat.append("\n" + paqueteRecibido.getNick() + ": " + paqueteRecibido.getMensaje());
                     } else {
-                        campochat.append("\n" + paqueteRecibido.getIps());
+                        //campochat.append("\n" + paqueteRecibido.getIps());
+                        ArrayList<String> IpsMenu = new ArrayList<String>();
+                        IpsMenu = paqueteRecibido.getIps();
+                        ip.removeAllItems();
+                        for (String z : IpsMenu) {
+                            ip.addItem(z);
+                        }
                     }
                 }
 

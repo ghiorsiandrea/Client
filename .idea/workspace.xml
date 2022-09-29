@@ -10,9 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20d213fe-7565-45bd-82a2-6f0369c2be7a" name="Changes" comment="Exercise Four -&#10;    Curso Java. - Pildoras Informaticas Sockets V-XII Creación de chat V-X. Vídeos 196-200">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/IPS.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ghiorsi/chat/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ghiorsi/chat/client/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +260,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664392977038</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Exercise Four -&#10;    Curso Java. - Pildoras Informaticas Sockets V-XII Creación de chat V-X. Vídeos 196-200">
+      <created>1664393001141</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1664393001141</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Exercise Four -&#10;    Curso Java. - Pildoras Informaticas Sockets V-XII Creación de chat V-X. Vídeos 196-200">
+      <created>1664393340763</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1664393340763</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
