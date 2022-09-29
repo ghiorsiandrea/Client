@@ -39,20 +39,11 @@ service, and returns the results in the form of a response.
 
 1) Clone the project
 
-2) You will need to modify the Combo box,
-   substituting those IP address for yours own IP address
+2) In terminal type "export PORT = (the desired port)
 
-<br>
-<div align="middle">
-<img src="src/main/resources/IPS.png" height="330" width="650"/>
-</div>
-<br>
+3) Run the command mvn clean package
 
-3) in terminal type "export PORT = (the desired port)
-
-4) Run the command mvn clean package
-
-5) Run the command "java -jar ./target/Client-1.0-SNAPSHOT-jar-with-dependencies.jar"
+4) Run the command "java -jar ./target/Client-1.0-SNAPSHOT-jar-with-dependencies.jar"
 
 
 <br>
