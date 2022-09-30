@@ -1,6 +1,6 @@
 package org.ghiorsi.chat.client;
 
-import org.ghiorsi.chat.protocol.PaqueteEnvio;
+import org.ghiorsi.chat.protocol.ShippingPackage;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -43,7 +43,7 @@ public class Client {
 
             try {
                 Socket misocket = new Socket("127.0.0.1", PORT);
-                PaqueteEnvio datos = new PaqueteEnvio();
+                ShippingPackage datos = new ShippingPackage();
                 datos.setMensaje(ONLINE);
                 ObjectOutputStream paquete_datos = new ObjectOutputStream(misocket.getOutputStream());
                 paquete_datos.writeObject(datos);
@@ -94,11 +94,11 @@ public class Client {
             try {
                 ServerSocket servidor_cliente = new ServerSocket(9090);
                 Socket cliente;
-                PaqueteEnvio paqueteRecibido;
+                ShippingPackage paqueteRecibido;
                 while (true) {
                     cliente = servidor_cliente.accept();
                     ObjectInputStream flujoentrada = new ObjectInputStream(cliente.getInputStream());
-                    paqueteRecibido = (PaqueteEnvio) flujoentrada.readObject();
+                    paqueteRecibido = (ShippingPackage) flujoentrada.readObject();
 
                     if (!paqueteRecibido.getMensaje().equals(ONLINE)) {
                         campochat.append("\n" + paqueteRecibido.getNick() + ": " + paqueteRecibido.getMensaje());
@@ -125,7 +125,7 @@ public class Client {
                 campochat.append("\n" + campo1.getText());
                 try {
                     Socket misocket = new Socket("192.168.1.14", Client.PORT);
-                    PaqueteEnvio datos = new PaqueteEnvio();
+                    ShippingPackage datos = new ShippingPackage();
                     datos.setNick(nick.getText());
                     datos.setIp(ip.getSelectedItem().toString());
                     datos.setMensaje(campo1.getText());
