@@ -13,30 +13,39 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class Client {
     public static final int PORT = Integer.parseInt(System.getenv("PORT"));
     public static final String ONLINE = " Online";
 
     public static void main(String[] args) {
-        MarcoCliente miMarco = new MarcoCliente();
+        String userNick = JOptionPane.showInputDialog("Nick: ");
+        MarcoCliente miMarco = new MarcoCliente(userNick);
         miMarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     public static class MarcoCliente extends JFrame {
-        public MarcoCliente() {
+        public MarcoCliente(String userNick) {
             setBounds(600, 300, 280, 350);
-            addWindowListener(new EnvioOnline());
-            LaminaMarcoCliente milamina = new LaminaMarcoCliente();
+            addWindowListener(new OnlineSender(userNick));
+            LaminaMarcoCliente milamina = new LaminaMarcoCliente(userNick);
             add(milamina);
             setVisible(true);
         }
     }
 
     /**
-     * Sending online signal
+     * Online signal Sender
      */
-    static class EnvioOnline extends WindowAdapter {
+    static class OnlineSender extends WindowAdapter {
+
+
+        private String userNick;
+
+        public OnlineSender(String userNick) {
+            this.userNick = userNick;
+        }
 
         @Override
         public void windowOpened(WindowEvent e) {
@@ -45,6 +54,7 @@ public class Client {
                 Socket misocket = new Socket("127.0.0.1", PORT);
                 ShippingPackage datos = new ShippingPackage();
                 datos.setMensaje(ONLINE);
+                datos.setNick(userNick);
                 ObjectOutputStream paquete_datos = new ObjectOutputStream(misocket.getOutputStream());
                 paquete_datos.writeObject(datos);
                 paquete_datos.close();
@@ -56,35 +66,30 @@ public class Client {
 
     static class LaminaMarcoCliente extends JPanel implements Runnable {
         private JTextField campo1;
-        private JComboBox ip;
+        private JComboBox nicks;
         private JLabel nick;
         private JTextArea campochat;
-        private JButton miboton;
+        private JButton sendButton;
 
-        public LaminaMarcoCliente() {
-            String nick_usuario = JOptionPane.showInputDialog("Nick: ");
-            JLabel n_nick = new JLabel("Nick: ");
+        public LaminaMarcoCliente(String userNick) {
             nick = new JLabel();
-            nick.setText(nick_usuario);
+            nick.setText(userNick);
             add(nick);
             JLabel texto = new JLabel(" - Online - ");
             add(texto);
-            ip = new JComboBox();
+            nicks = new JComboBox();
 
-//            ip.addItem("127.0.0.1");
-//            ip.addItem("192.168.1.14");
-//            ip.addItem("192.168.1.10");
-            add(ip);
+            add(nicks);
             campochat = new JTextArea(12, 20);
             add(campochat);
             campo1 = new JTextField(20);
             add(campo1);
-            miboton = new JButton("Send");
+            sendButton = new JButton("Send");
             EnviaTexto mievento = new EnviaTexto();
-            miboton.addActionListener(mievento);
-            add(miboton);
+            sendButton.addActionListener(mievento);
+            add(sendButton);
 
-            // Que el cliente este a la escuha permanentemente (9090)y pueda enviar y recibir informacion (server socket)
+            // That the client is permanently listening (9090) and can send and receive information (server socket)
             Thread mihilo = new Thread(this);
             mihilo.start();
         }
@@ -95,6 +100,7 @@ public class Client {
                 ServerSocket servidor_cliente = new ServerSocket(9090);
                 Socket cliente;
                 ShippingPackage paqueteRecibido;
+
                 while (true) {
                     cliente = servidor_cliente.accept();
                     ObjectInputStream flujoentrada = new ObjectInputStream(cliente.getInputStream());
@@ -102,13 +108,14 @@ public class Client {
 
                     if (!paqueteRecibido.getMensaje().equals(ONLINE)) {
                         campochat.append("\n" + paqueteRecibido.getNick() + ": " + paqueteRecibido.getMensaje());
-                    } else {
-                        //campochat.append("\n" + paqueteRecibido.getIps());
-                        ArrayList<String> IpsMenu = new ArrayList<String>();
-                        IpsMenu = paqueteRecibido.getIps();
-                        ip.removeAllItems();
-                        for (String z : IpsMenu) {
-                            ip.addItem(z);
+                    }
+
+                    else {
+                        ArrayList<String> nicksMenu = paqueteRecibido.getNicks();
+                        nicks.removeAllItems();
+
+                        for (String z : nicksMenu) {
+                            nicks.addItem(z);
                         }
                     }
                 }
@@ -127,18 +134,11 @@ public class Client {
                     Socket misocket = new Socket("192.168.1.14", Client.PORT);
                     ShippingPackage datos = new ShippingPackage();
                     datos.setNick(nick.getText());
-                    datos.setIp(ip.getSelectedItem().toString());
                     datos.setMensaje(campo1.getText());
 
-//                  Ex. Tree
                     ObjectOutputStream paquete_datos = new ObjectOutputStream(misocket.getOutputStream());
                     paquete_datos.writeObject(datos);
                     paquete_datos.close();
-
-//                   Ex. One
-//                   DataOutputStream flujo_salida = new DataOutputStream(misocket.getOutputStream());
-//                   flujo_salida.writeUTF(campo1.getText());
-//                   flujo_salida.close();
 
                 } catch (IOException ex) {
                     ex.printStackTrace();
@@ -147,4 +147,3 @@ public class Client {
         }
     }
 }
-
